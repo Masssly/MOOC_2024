@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wikidata 101: Open Online Course</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Maps</title>
+    <style>
+        /* Add these styles for centering */
+        #iframe-container {
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically if needed */
+            height: 100vh; /* Optional: Set height to viewport height for vertical centering */
+        }
+
+        iframe {
+            border: none; /* Remove border for a clean look */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
+            border-radius: 10px; /* Optional: Rounded corners */
+        }
+    </style>
 </head>
 <body>
-  <h1>Wikidata 101: An Introduction</h1>
-  <p>This page displays various maps and statistical insights for different iterations of the Wikidata MOOC.</p>
-  
-  <!-- Embed the map view page with the toggle feature -->
-  <iframe src="map_view.html" width="90%" height="600px"></iframe>
-
+	<h1>Wikidata 101: An Introduction</h1>
+		<p>This page displays various maps and statistical insights for different iterations of the Wikidata MOOC.</p>
+    <div id="iframe-container">
+        <iframe src="map_view.html" width="75%" height="600px"></iframe>
+    </div>
 </body>
 </html>
