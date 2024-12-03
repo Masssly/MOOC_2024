@@ -6,67 +6,72 @@
     <title>Combined Maps</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center maps horizontally */
-            background-color: #f0f0f0;
-        }
+<style>
+    /* Style for the body */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
 
-        /* Styling for the map container */
-        #map1, #map2, #map3, #map4 {
-            height: 400px; /* Adjust map height */
-            width: 80%; /* Restrict map width */
-            margin: 20px 0; /* Add some space between maps */
-            border: 2px solid #ccc; /* Optional border around maps */
-            border-radius: 8px; /* Optional rounded corners */
-        }
+    /* Style for the main container */
+    #main-container {
+        max-width: 1200px; /* Limit the width */
+        margin: 0 auto; /* Center the container on the page */
+        padding: 20px; /* Add space inside the container */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+        background-color: #f9f9f9; /* Optional background color */
+        border-radius: 10px; /* Rounded corners */
+    }
 
-        /* Styling for headings */
-        h3 {
-            text-align: center;
-            color: #333;
-        }
+    /* Style for each map container */
+    .map-container {
+        margin-bottom: 30px; /* Space between maps */
+    }
 
-        /* Customize scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
+    /* Style for the map titles */
+    .map-title {
+        margin-top: 10px;
+        text-align: center; /* Center-align the titles */
+        font-weight: bold;
+    }
 
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
+    /* Style for each map's div */
+    #map1, #map2, #map3, #map4 {
+        height: 400px; /* Set map height */
+        border: 1px solid #ddd; /* Add a subtle border around the map */
+        border-radius: 8px; /* Rounded corners for the maps */
+    }
+</style>
 
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-    </style>
 </head>
+
 <body>
     <h1>Wikidata 101: An Introduction</h1>
     <p>This page displays various maps and statistical insights for different iterations of the Wikidata MOOC.</p>
 
-    <div id="map1"></div>
-    <h3>Map 1 - Iteration 1</h3>
+<div id="main-container">
+    <div class="map-container">
+        <div id="map1"></div>
+        <h3 class="map-title">Map 1 - Iteration 1</h3>
+    </div>
 
-    <div id="map2"></div>
-    <h3>Map 2 - Iteration 2</h3>
+    <div class="map-container">
+        <div id="map2"></div>
+        <h3 class="map-title">Map 2 - Iteration 2</h3>
+    </div>
 
-    <div id="map3"></div>
-    <h3>Map 3 - Iteration 3</h3>
+    <div class="map-container">
+        <div id="map3"></div>
+        <h3 class="map-title">Map 3 - Iteration 3</h3>
+    </div>
 
-    <div id="map4"></div>
-    <h3>Map 4 - Combined Data</h3>
+    <div class="map-container">
+        <div id="map4"></div>
+        <h3 class="map-title">Map 4 - Combined Data</h3>
+    </div>
+</div>
+
 
     <script>
         // Function to initialize each map
