@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!--   <title>Participation Statistics</title> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #chart-container {
+            width: 75%;
+            margin: 0 auto;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+<body>
+ <!--    <h2>Participation Statistics</h2>-->
+    <div id="chart-container">
+        <canvas id="participationChart"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('participationChart').getContext('2d');
+        var participationChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Iteration 1', 'Iteration 2', 'Iteration 3'],
+                datasets: [{
+                    label: 'Signed up',
+                    data: [79, 58, 78],
+                    backgroundColor: '#4CAF50',
+                    borderColor: '#388E3C',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Didn\'t progress beyond signing up',
+                    data: [59, 46, 52],
+                    backgroundColor: '#FF9800',
+                    borderColor: '#F57C00',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Made progress / Completed',
+                    data: [20, 12, 26],
+                    backgroundColor: '#2196F3',
+                    borderColor: '#1976D2',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Scored >= 60',
+                    data: [9, 6, 7],
+                    backgroundColor: '#8BC34A',
+                    borderColor: '#689F38',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Scored < 60',
+                    data: [11, 6, 19],
+                    backgroundColor: '#F44336',
+                    borderColor: '#D32F2F',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 5
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.dataset.label + ': ' + tooltipItem.raw;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
