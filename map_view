@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Maps</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <style>
+        body { margin: 0; height: 100%; }
+        #map { height: 100%; }
+    </style>
+</head>
+<body>
+    <div id="map1" style="height: 100%; width: 100%;"></div>
+    <h3>Map 1 - Iteration 1</h3>
+    <div id="map2" style="height: 100%; width: 100%;"></div>
+    <h3>Map 2 - Iteration 2</h3>
+    <div id="map3" style="height: 100%; width: 100%;"></div>
+    <h3>Map 3 - Iteration 3</h3>
+    <div id="map4" style="height: 100%; width: 100%;"></div>
+    <h3>Map 4 - Combined Data</h3>
+
+    <script>
+        // Function to initialize each map
+        function initMap(mapId, data, viewCoords, zoomLevel) {
+            var map = L.map(mapId).setView(viewCoords, zoomLevel);
+
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>",
+            }).addTo(map);
+
+            data.forEach(function(item) {
+                L.circleMarker([item.lat, item.lon], {
+                    color: "blue", fillColor: "blue", fillOpacity: 0.6, radius: 6
+                }).bindTooltip(`<div>${item.country}: ${item.count}</div>`, { sticky: true }).addTo(map);
+            });
+        }
+
+        // Data for Iteration 1
+        var dataIteration1 = [
+            { lat: 23.685, lon: 90.3563, country: "Bangladesh", count: 1 },
+            { lat: -14.235, lon: -51.9253, country: "Brazil", count: 1 },
+            { lat: 51.1657, lon: 10.4515, country: "Germany", count: 1 },
+            { lat: 40.4637, lon: -3.7492, country: "Spain", count: 1 },
+            { lat: 46.6034, lon: 1.8883, country: "France", count: 4 },
+            { lat: 7.9465, lon: -1.0232, country: "Ghana", count: 1 },
+            { lat: -0.7893, lon: 113.9213, country: "Indonesia", count: 6 },
+            { lat: 9.082, lon: 8.6753, country: "Nigeria", count: 3 },
+            { lat: 1.3733, lon: 32.2903, country: "Uganda", count: 2 },
+            { lat: 37.0902, lon: -95.7129, country: "United States", count: 2 }
+        ];
+
+        // Data for Iteration 2
+        var dataIteration2 = [
+            { lat: -10.0, lon: 30.0, country: "Kenya", count: 5 },
+            { lat: 12.5, lon: 25.0, country: "South Africa", count: 3 },
+            { lat: 13.4, lon: 7.6, country: "Mali", count: 2 },
+            { lat: 1.0, lon: 32.5, country: "Tanzania", count: 4 },
+            { lat: 7.0, lon: 38.5, country: "Ethiopia", count: 3 }
+        ];
+
+        // Data for Iteration 3
+        var dataIteration3 = [
+            { lat: 12.0, lon: 40.0, country: "Ethiopia", count: 4 },
+            { lat: 15.0, lon: 45.0, country: "Sudan", count: 3 },
+            { lat: 5.0, lon: 10.0, country: "Cameroon", count: 2 },
+            { lat: 8.0, lon: 40.0, country: "Somalia", count: 5 },
+            { lat: -12.0, lon: 40.0, country: "Mozambique", count: 4 }
+        ];
+
+        // Data for Map 4 - Combined Data from Iterations 1, 2, and 3
+        var combinedData = [
+            // Data from Iteration 1
+            { lat: 23.685, lon: 90.3563, country: "Bangladesh", count: 1 },
+            { lat: -14.235, lon: -51.9253, country: "Brazil", count: 1 },
+            { lat: 51.1657, lon: 10.4515, country: "Germany", count: 1 },
+            { lat: 40.4637, lon: -3.7492, country: "Spain", count: 1 },
+            { lat: 46.6034, lon: 1.8883, country: "France", count: 4 },
+            { lat: 7.9465, lon: -1.0232, country: "Ghana", count: 1 },
+            { lat: -0.7893, lon: 113.9213, country: "Indonesia", count: 6 },
+            { lat: 9.082, lon: 8.6753, country: "Nigeria", count: 3 },
+            { lat: 1.3733, lon: 32.2903, country: "Uganda", count: 2 },
+            { lat: 37.0902, lon: -95.7129, country: "United States", count: 2 },
+
+            // Data from Iteration 2
+            { lat: -10.0, lon: 30.0, country: "Kenya", count: 5 },
+            { lat: 12.5, lon: 25.0, country: "South Africa", count: 3 },
+            { lat: 13.4, lon: 7.6, country: "Mali", count: 2 },
+            { lat: 1.0, lon: 32.5, country: "Tanzania", count: 4 },
+            { lat: 7.0, lon: 38.5, country: "Ethiopia", count: 3 },
+
+            // Data from Iteration 3
+            { lat: 12.0, lon: 40.0, country: "Ethiopia", count: 4 },
+            { lat: 15.0, lon: 45.0, country: "Sudan", count: 3 },
+            { lat: 5.0, lon: 10.0, country: "Cameroon", count: 2 },
+            { lat: 8.0, lon: 40.0, country: "Somalia", count: 5 },
+            { lat: -12.0, lon: 40.0, country: "Mozambique", count: 4 }
+        ];
+
+        // Initialize all maps
+        initMap("map1", dataIteration1, [10.0, 20.0], 2); // Map 1 - Iteration 1
+        initMap("map2", dataIteration2, [10.0, 20.0], 2); // Map 2 - Iteration 2
+        initMap("map3", dataIteration3, [10.0, 20.0], 2); // Map 3 - Iteration 3
+        initMap("map4", combinedData, [10.0, 20.0], 2); // Map 4 - Combined Data
+
+    </script>
+</body>
+</html>
