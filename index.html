@@ -17,15 +17,48 @@
             border: none; /* Remove border for a clean look */
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
             border-radius: 10px; /* Optional: Rounded corners */
+            margin-top: 0; /* Remove extra margin above iframe */
         }
+
+        h2 {
+            margin-top: 0; /* Remove margin above h2 */
+        }
+
+        #chart-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Additional styling to ensure vertical stacking */
+        .chart-section {
+            margin-bottom: 40px; /* Space between charts */
+            width: 80%;
+            margin: 0 auto;
+        }
+
     </style>
 </head>
 <body>
-	<h1>Wikidata 101: An Introduction</h1>
-		<p>This page displays various statistical insights for the three (3) different iterations of the Wikidata MOOC held in 2024.</p>
-    <div id="iframe-container">
-        <iframe src="map_view.html" width="75%" height="600px"></iframe>
-	<!-- <img src="Wikidata MOOC course card.png" alt="Logo" class="logo"> -->
+    <h1>Wikidata 101: An Introduction</h1>
+    <p>This page displays various statistical insights for the three (3) different iterations of the Wikidata MOOC held in 2024.</p>
+    
+    <!-- Participation Overview -->
+    <div class="chart-section">
+        <h2>Participation Overview</h2>
+        <iframe src="participation_chart.html" width="75%" height="600px"></iframe>
     </div>
+
+    <!-- Map View -->
+    <div class="chart-section">
+        <h2>Location of participants</h2>
+        <iframe src="map_view.html" width="75%" height="600px"></iframe>
+    </div>
+
+    <!-- Age Distribution -->
+    <div class="chart-section">
+        <h2>Age Distribution of Participants</h2>
+        <iframe src="age_chart.html" width="75%" height="600px"></iframe>
+    </div>
+
 </body>
 </html>
