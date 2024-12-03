@@ -7,18 +7,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
     <style>
-        body { margin: 0; height: 100%; }
-        #map { height: 100%; }
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #map1, #map2, #map3, #map4 {
+            height: 500px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <div id="map1" style="height: 100%; width: 100%;"></div>
+    <h1>Wikidata 101: An Introduction</h1>
+    <p>This page displays various maps and statistical insights for different iterations of the Wikidata MOOC.</p>
+
+    <div id="map1"></div>
     <h3>Map 1 - Iteration 1</h3>
-    <div id="map2" style="height: 100%; width: 100%;"></div>
+
+    <div id="map2"></div>
     <h3>Map 2 - Iteration 2</h3>
-    <div id="map3" style="height: 100%; width: 100%;"></div>
+
+    <div id="map3"></div>
     <h3>Map 3 - Iteration 3</h3>
-    <div id="map4" style="height: 100%; width: 100%;"></div>
+
+    <div id="map4"></div>
     <h3>Map 4 - Combined Data</h3>
 
     <script>
@@ -97,6 +106,12 @@
             { lat: 8.0, lon: 40.0, country: "Somalia", count: 5 },
             { lat: -12.0, lon: 40.0, country: "Mozambique", count: 4 }
         ];
+
+        // Log data to check if it's correct
+        console.log(dataIteration1);
+        console.log(dataIteration2);
+        console.log(dataIteration3);
+        console.log(combinedData);
 
         // Initialize all maps
         initMap("map1", dataIteration1, [10.0, 20.0], 2); // Map 1 - Iteration 1
