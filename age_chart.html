@@ -1,69 +1,91 @@
-<script>
-    var ctx = document.getElementById('ageChart').getContext('2d');
-    var ageChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: [
-                '20-29', '30-39', '40-49', '50-59', '60-69', '70+', // Iteration 1
-                '20-29', '30-39', '40-49', '50-59', '60-69', '70+', // Iteration 2
-                '20-29', '30-39', '40-49', '50-59', '60-69', '70+'  // Iteration 3
-            ],
-            datasets: [{
-                label: 'Age Distribution',
-                data: [
-                    10, 15, 8, 4, 3, 2, // Iteration 1 data
-                    12, 18, 10, 5, 2, 1, // Iteration 2 data
-                    14, 20, 9, 6, 3, 2  // Iteration 3 data
-                ],
-                backgroundColor: [
-                    '#4CAF50', '#FF9800', '#2196F3', '#8BC34A', '#F44336', '#9C27B0',
-                    '#4CAF50', '#FF9800', '#2196F3', '#8BC34A', '#F44336', '#9C27B0',
-                    '#4CAF50', '#FF9800', '#2196F3', '#8BC34A', '#F44336', '#9C27B0'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    ticks: { autoSkip: false },
-                    grid: {
-                        display: false
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #chart-container {
+            width: 75%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart-container">
+        <canvas id="ageChart"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('ageChart').getContext('2d');
+        var ageChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Iteration 1', 'Iteration 2', 'Iteration 3'],
+                datasets: [
+                    {
+                        label: '20-29',
+                        data: [12, 14, 16],
+                        backgroundColor: '#4CAF50'
+                    },
+                    {
+                        label: '30-39',
+                        data: [18, 16, 20],
+                        backgroundColor: '#FF9800'
+                    },
+                    {
+                        label: '40-49',
+                        data: [22, 20, 24],
+                        backgroundColor: '#2196F3'
+                    },
+                    {
+                        label: '50-59',
+                        data: [10, 12, 14],
+                        backgroundColor: '#8BC34A'
+                    },
+                    {
+                        label: '60-69',
+                        data: [5, 6, 8],
+                        backgroundColor: '#F44336'
+                    },
+                    {
+                        label: '70+',
+                        data: [2, 3, 4],
+                        backgroundColor: '#9C27B0'
+                    },
+                    {
+                        label: 'Not Specified',
+                        data: [15, 18, 12], <!-- Adjust this data to actual numbers -->
+                        backgroundColor: '#9E9E9E'
                     }
-                },
-                y: { beginAtZero: true }
+                ]
             },
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: function(tooltipItem) {
-                            return tooltipItem.raw + ' participants';
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                        title: {
+                            display: true,
+                            text: 'Iterations'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Participants'
                         }
                     }
                 },
-                annotation: {
-                    annotations: [
-                        {
-                            type: 'line',
-                            scaleID: 'x',
-                            value: 5.5, // Between Iteration 1 and 2
-                            borderColor: '#000',
-                            borderWidth: 2,
-                            borderDash: [5, 5]
-                        },
-                        {
-                            type: 'line',
-                            scaleID: 'x',
-                            value: 11.5, // Between Iteration 2 and 3
-                            borderColor: '#000',
-                            borderWidth: 2,
-                            borderDash: [5, 5]
-                        }
-                    ]
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
                 }
             }
-        }
-    });
-</script>
+        });
+    </script>
+</body>
+</html>
