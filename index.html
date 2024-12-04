@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikidata:Open Online Course</title>
+    <title>Wikidata: Open Online Course</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon for better branding -->
     <style>
-        /* Add these styles for centering */
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007BFF;
+            color: white;
+            margin: 0;
+        }
+
+        h2 {
+            color: #007BFF;
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 1.1em;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation Menu Styles */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Add these styles for centering iframes */
         #iframe-container {
             display: flex; /* Use flexbox for centering */
             justify-content: center; /* Center horizontally */
@@ -20,46 +76,97 @@
             margin-top: 0; /* Remove extra margin above iframe */
         }
 
-        h2 {
-            margin-top: 0; /* Remove margin above h2 */
-        }
-
-        #chart-container {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        /* Additional styling to ensure vertical stacking */
+        /* Chart Section Styles */
         .chart-section {
-            margin-bottom: 40px; /* Space between charts */
+            margin: 40px auto;
             width: 80%;
-            margin: 0 auto;
+            text-align: center;
         }
 
+        .chart-section iframe {
+            width: 100%;
+            max-width: 1000px; /* Maximum width for large screens */
+            height: 600px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            .chart-section iframe {
+                height: 400px; /* Adjust iframe height for mobile */
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Header -->
     <h1>Wikidata 101: An Introduction</h1>
-    <p>This page displays various statistical insights for the three (3) different iterations of the Wikidata MOOC run by the Software Communicationa team at Wikimedia Deutschland in 2024.<br/> Find out more at Find out more at <a href="https://www.wikidata.org/wiki/Wikidata:Open_Online_Course" target="_blank">Wikidata: Open Online Course</a>
-.</p>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#participation-overview">Participation Overview</a>
+        <a href="#location-of-participants">Location of Participants</a>
+        <a href="#age-distribution">Age Distribution</a>
+        <a href="#gender-distribution">Gender Distribution</a>
+        <a href="#education-levels">Education Levels</a>
+    </nav>
+
+    <p>This page displays various statistical insights for the three (3) different iterations of the Wikidata MOOC run by the Software Communicationa team at Wikimedia Deutschland in 2024.</p>
     
     <!-- Participation Overview -->
-    <div class="chart-section">
+    <div id="participation-overview" class="chart-section">
         <h2>Participation Overview</h2>
-        <iframe src="participation_chart.html" width="75%" height="600px"></iframe>
+        <iframe src="participation_chart.html" aria-label="Participation Overview Chart"></iframe>
     </div>
 
     <!-- Map View -->
-    <div class="chart-section">
-        <h2>Location of participants</h2>
-        <iframe src="map_view.html" width="75%" height="600px"></iframe>
+    <div id="location-of-participants" class="chart-section">
+        <h2>Location of Participants</h2>
+        <iframe src="map_view.html" aria-label="Map View of Participants' Locations"></iframe>
     </div>
 
     <!-- Age Distribution -->
-    <div class="chart-section">
+    <div id="age-distribution" class="chart-section">
         <h2>Age Distribution of Participants</h2>
-        <iframe src="age_chart.html" width="75%" height="600px"></iframe>
+        <iframe src="age_chart.html" aria-label="Age Distribution Chart"></iframe>
     </div>
+
+    <!-- Gender Distribution -->
+    <div id="gender-distribution" class="chart-section">
+        <h2>Gender Distribution of Participants</h2>
+        <iframe src="gender_chart.html" aria-label="Gender Distribution Chart"></iframe>
+    </div>
+
+    <!-- Education Levels -->
+    <div id="education-levels" class="chart-section">
+        <h2>Education Levels of Participants</h2>
+        <iframe src="education_chart.html" aria-label="Education Levels Chart"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Wikimedia Deutschland. All rights reserved.</p>
+        <p><a href="https://www.wikidata.org/wiki/Wikidata:Open_Online_Course" target="_blank">Learn more about the Wikidata Open Online Course</a></p>
+    </footer>
 
 </body>
 </html>
