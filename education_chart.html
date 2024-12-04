@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Levels of Participants</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #chart-container {
+            width: 75%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart-container">
+        <canvas id="educationChart"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('educationChart').getContext('2d');
+        var educationChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Iteration 1', 'Iteration 2', 'Iteration 3'],
+                datasets: [
+                    {
+                        label: "Associate Degree (a)",
+                        data: [8, 4, 5], // Replace with actual count for each iteration
+                        backgroundColor: '#4CAF50'
+                    },
+                    {
+                        label: "Bachelor's Degree (b)",
+                        data: [10, 12, 13], // Replace with actual count for each iteration
+                        backgroundColor: '#FF9800'
+                    },
+                    {
+                        label: "High School (hs)",
+                        data: [2, 1, 3], // Replace with actual count for each iteration
+                        backgroundColor: '#2196F3'
+                    },
+                    {
+                        label: "Master's Degree (m)",
+                        data: [9, 9, 8], // Replace with actual count for each iteration
+                        backgroundColor: '#8BC34A'
+                    },
+                    {
+                        label: "PhD (p)",
+                        data: [2, 1, 2], // Replace with actual count for each iteration
+                        backgroundColor: '#F44336'
+                    },
+                    {
+                        label: "Not Specified",
+                        data: [6, 3, 4], // Replace with actual count for each iteration
+                        backgroundColor: '#9E9E9E'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                        title: {
+                            display: true,
+                            text: 'Iterations'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Participants'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
