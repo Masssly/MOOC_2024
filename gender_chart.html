@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #chart-container {
+            width: 75%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart-container">
+        <canvas id="genderChart"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('genderChart').getContext('2d');
+        var genderChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Iteration 1', 'Iteration 2', 'Iteration 3'],
+                datasets: [
+                    {
+                        label: 'Female',
+                        data: [5, 5, 5],
+                        backgroundColor: '#4CAF50'
+                    },
+                    {
+                        label: 'Male',
+                        data: [9, 8, 9],
+                        backgroundColor: '#2196F3'
+                    },
+                    {
+                        label: 'Not Specified',
+                        data: [56, 57, 56],
+                        backgroundColor: '#9E9E9E'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                        title: {
+                            display: true,
+                            text: 'Iterations'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Participants'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
